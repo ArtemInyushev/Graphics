@@ -57,7 +57,7 @@ public class HelloApplication extends JPanel implements ActionListener {
         g2d.scale(2, 2);
         g2d.translate(-tx, -ty);
 
-        g2d.setColor(Color.WHITE);
+        g2d.setColor(Color.BLACK);
         BasicStroke bs1 = new BasicStroke(16, BasicStroke.CAP_ROUND,
                 BasicStroke.JOIN_ROUND);
         g2d.setStroke(bs1);
