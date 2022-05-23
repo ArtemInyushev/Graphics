@@ -8,17 +8,7 @@ import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
-
 public class HelloApplication extends Application {
-    private static double X(double originalX) {
-        return originalX + 300;
-    }
-
-    private static double Y(double originalY) {
-        return originalY + 200;
-    }
-
     public static void main(String args[]) {
         launch(args);
     }
@@ -27,79 +17,64 @@ public class HelloApplication extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 1200, 600);
 
-        //top
-        Ellipse head = new Ellipse(X(45), Y(0), 60, 70);
-        head.setFill(Color.rgb(11, 145, 218));
+        //head
+        Circle head = new Circle(400, 150, 80);
+        head.setFill(Color.YELLOW);
         root.getChildren().add(head);
 
-        //bottom
-        Circle legs = new Circle(X(45), Y(70), 75);
-        legs.setFill(Color.rgb(11, 145, 218));
-        root.getChildren().add(legs);
-
-        //middle
-        Ellipse mid = new Ellipse(X(45), Y(70), 50, 70);
-        mid.setFill(Color.rgb(198, 225, 254));
-        root.getChildren().add(mid);
-
-        //arms
-        Ellipse arm1 = new Ellipse(X(-40), Y(53), 15, 43);
-        arm1.setRotate(45);
-        arm1.setFill(Color.rgb(3, 66, 163));
-        root.getChildren().add(arm1);
-
-        Ellipse arm2 = new Ellipse(X(130), Y(53), 15, 43);
-        arm2.setRotate(-45);
-        arm2.setFill(Color.rgb(3, 66, 163));
-        root.getChildren().add(arm2);
-
-        //legs
-        Ellipse leg1 = new Ellipse(X(-10), Y(140), 40, 25);
-        leg1.setFill(Color.rgb(242, 187, 0));
-        root.getChildren().add(leg1);
-
-        Ellipse leg2 = new Ellipse(X(90), Y(145), 40, 25);
-        leg2.setFill(Color.rgb(242, 187, 0));
-        root.getChildren().add(leg2);
-
-        Ellipse leg1_2 = new Ellipse(X(-18), Y(141), 27, 19);
-        leg1_2.setFill(Color.rgb(254, 219, 155));
-        root.getChildren().add(leg1_2);
-
-        Ellipse leg2_2 = new Ellipse(X(94), Y(141), 27, 19);
-        leg2_2.setFill(Color.rgb(254, 219, 155));
-        root.getChildren().add(leg2_2);
-
-        //mouth
-        Polygon mouth = new Polygon();
-        mouth.getPoints().addAll(new Double[]{
-                327.0, 200.0,
-                360.0, 200.0,
-                345.0, 220.0
-        });
-        mouth.setFill(Color.rgb(251, 176, 22));
-        root.getChildren().add(mouth);
-
-        //eyes
-        Ellipse eye1 = new Ellipse(X(27), Y(-15), 13, 20);
-        eye1.setStrokeWidth(1);
-        eye1.setStroke(Color.BLACK);
-        eye1.setFill(Color.WHITE);
+        //eye
+        Ellipse eye1 = new Ellipse(420, 130, 12, 8);
+        eye1.setRotate(45);
+        eye1.setFill(Color.BLACK);
         root.getChildren().add(eye1);
 
-        Ellipse eye2 = new Ellipse(X(60), Y(-10), 20, 13);
-        eye2.setStrokeWidth(1);
-        eye2.setStroke(Color.BLACK);
+        Circle eye2 = new Circle(419, 127, 3);
         eye2.setFill(Color.WHITE);
         root.getChildren().add(eye2);
 
-        Circle cirle1 = new Circle(X(34), Y(-10), 4);
-        cirle1.setFill(Color.BLACK);
-        root.getChildren().add(cirle1);
+        //body
+        Ellipse body = new Ellipse(400, 310, 150, 100);
+        body.setFill(Color.YELLOW);
+        root.getChildren().add(body);
 
-        Circle cirle2 = new Circle(X(46), Y(-10), 4);
-        cirle2.setFill(Color.BLACK);
-        root.getChildren().add(cirle2);
+        Ellipse body1 = new Ellipse(300, 280, 90, 65);
+        body1.setRotate(70);
+        body1.setFill(Color.rgb(255, 252, 0));
+        root.getChildren().add(body1);
+
+        Ellipse body2 = new Ellipse(300, 350, 70, 40);
+        body2.setRotate(30);
+        body2.setFill(Color.YELLOW);
+        root.getChildren().add(body2);
+
+        //beak
+        Polygon beak = new Polygon();
+        beak.getPoints().addAll(new Double[]{
+                460.0, 190.0,
+                475.0, 150.0,
+                520.0, 151.0
+        });
+        beak.setFill(Color.ORANGE);
+        root.getChildren().add(beak);
+
+        Polygon beak1 = new Polygon();
+        beak1.getPoints().addAll(new Double[]{
+                460.0, 190.0,
+                500.0, 190.0,
+                500.0, 195.0,
+                460.0, 195.0,
+        });
+        beak1.setFill(Color.ORANGE);
+        root.getChildren().add(beak1);
+
+        Polygon beak2 = new Polygon();
+        beak2.getPoints().addAll(new Double[]{
+                460.0, 190.0,
+                495.0, 190.0,
+                495.0, 165.0
+        });
+        beak2.setFill(Color.RED);
+        root.getChildren().add(beak2);
 
         // Animation
         int cycleCount = 2;
@@ -145,7 +120,7 @@ public class HelloApplication extends Application {
         // End of animation
 
         primaryStage.setResizable(false);
-        primaryStage.setTitle("LAB 3! Nazarii Kozynets");
+        primaryStage.setTitle("LAB 3");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
